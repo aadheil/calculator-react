@@ -14,23 +14,35 @@ function App() {
     
   }
   const evaluate=()=>{
+    if(expresson){
     try {
       var b=eval(expresson)
     var st=b.toString()
     setexpresson(st)
     }
     catch(err) {
-      setexpresson("0")
+      var lastel=expresson.slice(-1)
+      if(lastel=="+")
+      {
+        setexpresson(expresson)
+      }
+      else{
+        setexpresson("0")
+
+      }
     }
-    var zerolast=expresson.substring(expresson.length - 1)
+    var last2= expresson.slice(-2);
     
-    if(zerolast==0){
+    // var divideseclast=expresson.substring(1,expresson.length - 1)
+// alert(divideseclast)
+    
+    if(last2=="/0"){
       setexpresson("Can't divide by zero")
       
 
     }
    
-  }
+  }}
   const handleac=()=>{
     setexpresson("")
   }
